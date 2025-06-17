@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{business_name}}</title>
+    <title>{{business_name}} Marketing Group</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Caveat:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
@@ -719,7 +719,7 @@
             width: 30px;
             height: 20px;
             cursor: pointer;
-            z-index: 1000;
+            z-index: 100;
         }
 
         .menu-toggle span {
@@ -853,7 +853,7 @@
         }
 
         .hero-image:hover {
-            transform: rotateY(-5deg) rotateX(-3deg) scale(1.02);
+            transform: rotateY(-5deg) rotateX(5deg) scale(1.03);
         }
 
         .hero-image img {
@@ -869,32 +869,27 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            top: 15px;
-            left: -15px;
-            border: 1.5px solid var(--secondary);
+            top: 0;
+            left: 0;
+            border: 2px solid var(--primary);
             border-radius: var(--border-radius-lg);
-            z-index: -1;
-            transition: var(--transition-medium);
+            transform: translateZ(-20px);
+            filter: blur(4px);
+            opacity: 0.6;
         }
 
-        .hero-image:hover::before {
-            top: 10px;
-            left: -10px;
-            border-color: var(--primary);
-        }
-        
         .hero-image::after {
             content: '';
             position: absolute;
+            width: 100%;
+            height: 100%;
             top: -20px;
-            left: -20px;
-            width: 150px;
-            height: 150px;
-            background: var(--tertiary-glow);
-            filter: blur(40px);
-            opacity: 0.5;
-            border-radius: 50%;
-            z-index: -1;
+            left: 20px;
+            background: linear-gradient(45deg, var(--primary-glow), var(--secondary-glow));
+            border-radius: var(--border-radius-lg);
+            transform: translateZ(-40px);
+            filter: blur(30px);
+            opacity: 0.4;
         }
 
         .scroll-invite {
@@ -2350,6 +2345,748 @@
                 grid-template-columns: 1fr;
             }
         }
+    </style>
+</head>
+<body>
+    <!-- Noise effect -->
+    <div class="noise"></div>
+    
+    <!-- Particles background -->
+    <div id="particles-js"></div>
+    
+    <!-- Gradient borders -->
+    <div class="gradient-border border-top"></div>
+    <div class="gradient-border border-right"></div>
+    <div class="gradient-border border-bottom"></div>
+    <div class="gradient-border border-left"></div>
+
+    <!-- Loader -->
+    <div class="loader">
+        <div class="loader-content">
+            <div class="loader-logo">{{business_name}}</div>
+            <div class="loader-text">Crafting Digital Experiences</div>
+            <div class="loader-progress-container">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo">{{business_name}}</div>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#home" class="nav-link active">Home</a></li>
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li><a href="#services" class="nav-link">Services</a></li>
+                        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                        <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                        <li><a href="#blog" class="nav-link">Blog</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <!-- Removed colorful blob effects -->
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-tagline">Digital Marketing Agency</div>
+                <h1 class="hero-title">
+                    <span>Transform Your</span>
+                    <span class="accent-line">Digital Presence</span>
+                </h1>
+                <p class="hero-paragraph">We create cutting-edge digital experiences that elevate brands, drive engagement, and deliver measurable results in an ever-evolving digital landscape.</p>
+                <div class="hero-buttons">
+                    <div class="btn-wrapper">
+                        <a href="#services" class="btn btn-glow">Explore Services</a>
+                    </div>
+                    <div class="btn-wrapper">
+                        <a href="#contact" class="btn btn-alt">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-image-container">
+                <div class="hero-image card-3d">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Digital Marketing Team">
+                </div>
+            </div>
+        </div>
+        
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <div class="marquee-item">Digital Innovation</div>
+                <div class="marquee-item">Creative Marketing</div>
+                <div class="marquee-item">Brand Growth</div>
+                <div class="marquee-item">Strategy</div>
+                <div class="marquee-item">Development</div>
+            </div>
+        </div>
+        
+
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Who We Are</div>
+                <h2 class="section-title">About <span>{{business_name}}</span></h2>
+            </div>
+            
+            <div class="about-wrapper">
+                <div class="about-image-wrapper">
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="About {{business_name}}">
+                    </div>
+                </div>
+                
+                <div class="about-content">
+                    <span class="about-handwritten">Welcome to {{business_name}}</span>
+                    <h3>We Craft Digital Success Stories</h3>
+                    <p>{{business_name}} is a forward-thinking digital marketing agency dedicated to transforming businesses through innovative digital strategies. With years of experience and a passion for excellence, we've helped countless brands achieve remarkable growth in the digital landscape.</p>
+                    <p>Our multi-disciplinary team of experts combines creative thinking with data-driven insights to deliver tailored solutions that exceed expectations and drive tangible results.</p>
+                    
+                    <ul class="about-list">
+                        <li class="about-list-item"><i class="fas fa-check-circle"></i> Strategic planning and execution</li>
+                        <li class="about-list-item"><i class="fas fa-check-circle"></i> Creative and innovative approaches</li>
+                        <li class="about-list-item"><i class="fas fa-check-circle"></i> Advanced technologies and methodologies</li>
+                        <li class="about-list-item"><i class="fas fa-check-circle"></i> Dedicated support and partnership</li>
+                    </ul>
+                    
+                    <div class="about-buttons">
+                        <div class="btn-wrapper">
+                            <a href="#services" class="btn">Our Services</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">250+</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">180+</div>
+                        <div class="stat-label">Satisfied Clients</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">15+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">30+</div>
+                        <div class="stat-label">Team Members</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section services">
+        
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">What We Do</div>
+                <h2 class="section-title">Our <span>Services</span></h2>
+            </div>
+            
+            <div class="services-intro">
+                <p>We offer a comprehensive range of digital marketing services designed to help your business thrive in the digital age. Our tailored solutions drive growth, engagement, and conversions.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card card-3d">
+                    <div class="card-3d-content">
+                        <div class="service-icon-wrapper">
+                            <div class="service-icon">
+                                <i class="fas fa-bullhorn"></i>
+                            </div>
+                        </div>
+                        <h4 class="service-title">Digital Advertising</h4>
+                        <p class="service-description">Strategic paid campaigns across multiple platforms to increase visibility and drive qualified traffic to your business.</p>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card card-3d">
+                    <div class="card-3d-content">
+                        <div class="service-icon-wrapper">
+                            <div class="service-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                        </div>
+                        <h4 class="service-title">Web Development</h4>
+                        <p class="service-description">Custom, responsive, and user-friendly websites optimized for performance and conversions.</p>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card card-3d">
+                    <div class="card-3d-content">
+                        <div class="service-icon-wrapper">
+                            <div class="service-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                        <h4 class="service-title">SEO Optimization</h4>
+                        <p class="service-description">Comprehensive strategies to improve search visibility and drive organic traffic to your website.</p>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card card-3d">
+                    <div class="card-3d-content">
+                        <div class="service-icon-wrapper">
+                            <div class="service-icon">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                        </div>
+                        <h4 class="service-title">Brand Identity</h4>
+                        <p class="service-description">Creating distinctive visual identities that resonate with your audience and make your brand memorable.</p>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card card-3d">
+                    <div class="card-3d-content">
+                        <div class="service-icon-wrapper">
+                            <div class="service-icon">
+                                <i class="fas fa-hashtag"></i>
+                            </div>
+                        </div>
+                        <h4 class="service-title">Social Media Marketing</h4>
+                        <p class="service-description">Strategic social media campaigns to build brand awareness, engagement, and community around your business.</p>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card card-3d">
+                    <div class="card-3d-content">
+                        <div class="service-icon-wrapper">
+                            <div class="service-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                        </div>
+                        <h4 class="service-title">Data Analytics</h4>
+                        <p class="service-description">In-depth analysis of digital performance to optimize strategies and maximize return on investment.</p>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section portfolio">
+        
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Our Work</div>
+                <h2 class="section-title">Featured <span>Projects</span></h2>
+            </div>
+            
+            <div class="portfolio-intro">
+                <p>Explore our diverse portfolio of successful projects across various industries. Each project represents our commitment to excellence and innovation.</p>
+            </div>
+            
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="branding">Branding</button>
+                <button class="filter-btn" data-filter="web">Web Design</button>
+                <button class="filter-btn" data-filter="marketing">Marketing</button>
+                <button class="filter-btn" data-filter="social">Social Media</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="web">
+                    <div class="portfolio-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Portfolio Item" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <div class="portfolio-category">Web Design</div>
+                                <h4 class="portfolio-title">E-Commerce Platform</h4>
+                                <a href="#" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="branding">
+                    <div class="portfolio-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Portfolio Item" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <div class="portfolio-category">Branding</div>
+                                <h4 class="portfolio-title">Luxury Brand Identity</h4>
+                                <a href="#" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="marketing">
+                    <div class="portfolio-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Portfolio Item" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <div class="portfolio-category">Marketing</div>
+                                <h4 class="portfolio-title">Campaign Strategy</h4>
+                                <a href="#" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="social">
+                    <div class="portfolio-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Portfolio Item" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <div class="portfolio-category">Social Media</div>
+                                <h4 class="portfolio-title">Platform Growth</h4>
+                                <a href="#" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="web">
+                    <div class="portfolio-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1481487196290-c152efe083f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Portfolio Item" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <div class="portfolio-category">Web Design</div>
+                                <h4 class="portfolio-title">Mobile App UI/UX</h4>
+                                <a href="#" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="marketing">
+                    <div class="portfolio-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Portfolio Item" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <div class="portfolio-category">Digital Marketing</div>
+                                <h4 class="portfolio-title">Analytics Dashboard</h4>
+                                <a href="#" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section testimonials">
+        
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">What Clients Say</div>
+                <h2 class="section-title">Client <span>Testimonials</span></h2>
+            </div>
+            
+            <div class="testimonial-intro">
+                <p>Hear directly from our clients about their experience working with {{business_name}} and the results we've delivered for their businesses.</p>
+            </div>
+            
+            <div class="testimonial-container">
+                <div class="testimonial-wrapper">
+                    <div class="testimonial-card-3d">
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">"</div>
+                            <div class="testimonial-content">
+                                {{business_name}} transformed our digital presence. Their approach to marketing campaigns resulted in a 200% increase in qualified leads and a significant boost in conversion rates. Their team is incredibly skilled and a pleasure to work with.
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80" alt="Author">
+                                </div>
+                                <div class="author-info">
+                                    <div class="author-name">Michael Johnson</div>
+                                    <div class="author-title">CEO, TechNova Solutions</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card back">
+                            <div class="testimonial-quote">"</div>
+                            <div class="testimonial-content">
+                                Working with {{business_name}} has been a game-changer for our brand. Their team developed a stunning visual identity that captured our values, and their marketing strategies helped us build a loyal community around our products. Extremely happy with the results!
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80" alt="Author">
+                                </div>
+                                <div class="author-info">
+                                    <div class="author-name">Sarah Williams</div>
+                                    <div class="author-title">Founder, Evergreen Beauty</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-navigation">
+                    <div class="testimonial-btn prev">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                    <div class="testimonial-btn next">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+                
+                <div class="testimonial-dots">
+                    <div class="testimonial-dot active"></div>
+                    <div class="testimonial-dot"></div>
+                    <div class="testimonial-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Get In Touch</div>
+                <h2 class="section-title">Contact <span>Us</span></h2>
+            </div>
+            
+            <div class="contact-intro">
+                <p>Ready to transform your digital presence? Get in touch with us today to discuss your project or schedule a consultation with our team of experts.</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-details">
+                    <h3 class="contact-heading">Let's Connect</h3>
+                    <ul class="contact-list">
+                        <li class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-info">
+                                <div class="contact-label">Our Location</div>
+                                <div class="contact-text">123 Digital Avenue, New York, NY 10016</div>
+                            </div>
+                        </li>
+                        <li class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-info">
+                                <div class="contact-label">Phone Number</div>
+                                <div class="contact-text">+1 (555) 123-4567</div>
+                            </div>
+                        </li>
+                        <li class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-info">
+                                <div class="contact-label">Email Address</div>
+                                <div class="contact-text">info@{{business_name}}agency.com</div>
+                            </div>
+                        </li>
+                        <li class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-info">
+                                <div class="contact-label">Working Hours</div>
+                                <div class="contact-text">Monday - Friday: 9AM - 6PM</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="contact-form-container">
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <input type="text" class="form-input" id="name" placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-input" id="email" placeholder="Your Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" id="subject" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-input" id="message" placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-about">
+                    <div class="footer-logo">{{business_name}}</div>
+                    <p>We help businesses transform their digital presence through innovative marketing strategies and cutting-edge web solutions.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-nav">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home" class="footer-link"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#about" class="footer-link"><i class="fas fa-chevron-right"></i> About</a></li>
+                        <li><a href="#services" class="footer-link"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="#portfolio" class="footer-link"><i class="fas fa-chevron-right"></i> Portfolio</a></li>
+                        <li><a href="#contact" class="footer-link"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-services">
+                    <h4 class="footer-heading">Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Digital Advertising</a></li>
+                        <li><a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Web Development</a></li>
+                        <li><a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> SEO Optimization</a></li>
+                        <li><a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Brand Identity</a></li>
+                        <li><a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Social Media Marketing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h4 class="footer-heading">Newsletter</h4>
+                    <p>Subscribe to our newsletter to receive updates and marketing tips.</p>
+                    <form class="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" class="form-input" placeholder="Your Email">
+                        </div>
+                        <button type="submit" class="submit-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 {{business_name}} Digital Marketing Agency. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Loader Animation
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelector('.loader').style.opacity = '0';
+                document.querySelector('.loader').style.visibility = 'hidden';
+            }, 3000);
+        });
+        
+        // Particles JS
+        document.addEventListener('DOMContentLoaded', function() {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 50,
+                        "density": {
+                            "enable": true,
+                            "value_area": 1000
+                        }
+                    },
+                    "color": {
+                        "value": "#ffffff"
+                    },
+                    "shape": {
+                        "type": "circle"
+                    },
+                    "opacity": {
+                        "value": 0.1,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 0.5,
+                            "opacity_min": 0.05,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 2,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 1,
+                            "size_min": 0.5,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#ffffff",
+                        "opacity": 0.05,
+                        "width": 0.5
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 0.3,
+                        "direction": "none",
+                        "random": true,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": true,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": false
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 150,
+                            "line_linked": {
+                                "opacity": 0.2
+                            }
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+        });
+
+        // Navigation
+        const header = document.querySelector('header');
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        const navLinksItems = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+        
+        navLinksItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinksItems.forEach(link => link.classList.remove('active'));
+                item.classList.add('active');
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+        
+        // Testimonial Rotation
+        const testimonialCard = document.querySelector('.testimonial-card-3d');
+        const prevBtn = document.querySelector('.testimonial-btn.prev');
+        const nextBtn = document.querySelector('.testimonial-btn.next');
+        const dots = document.querySelectorAll('.testimonial-dot');
+        let isFlipped = false;
+        
+        function flipCard() {
+            isFlipped = !isFlipped;
+            testimonialCard.style.transform = isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)';
+            updateDots();
+        }
+        
+        function updateDots() {
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', (index === 0 && !isFlipped) || (index === 1 && isFlipped));
+            });
+        }
+        
+        prevBtn.addEventListener('click', flipCard);
+        nextBtn.addEventListener('click', flipCard);
+        
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                isFlipped = index === 1;
+                testimonialCard.style.transform = isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)';
+                updateDots();
+            });
+        });
+        
+        // Portfolio Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(btn => btn.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const filter = btn.dataset.filter;
+                
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.dataset.category === filter) {
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
+                        item.style.display = 'block';
+                    } else {
+                        item.style.opacity = '0.3';
+                        item.style.transform = 'scale(0.8)';
+                    }
+                });
+            });
+        });
+        
+        // ScrollReveal Animation
+        const sr = ScrollReveal({
+            origin: 'bottom',
+            distance: '30px',
+            duration: 1000,
+            delay: 200,
+            easing: 'ease-in-out'
+        });
+        
+        sr.reveal('.section-header', {});
+        sr.reveal('.about-image', { origin: 'left' });
+        sr.reveal('.about-content', { origin: 'right', delay: 300 });
+        sr.reveal('.stat-card', { interval: 200 });
+        sr.reveal('.service-card', { interval: 200 });
+        sr.reveal('.portfolio-item', { interval: 200 });
+        sr.reveal('.testimonial-wrapper', {});
+        sr.reveal('.contact-details', { origin: 'left' });
+        sr.reveal('.contact-form-container', { origin: 'right', delay: 300 });
     </script>
 </body>
 </html>
