@@ -1,0 +1,3255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kismetcreativeco - Digital Marketing Revolution</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+/* Global Styles */
+:root {
+    --primary-color: #ffffff;
+    --secondary-color: #f5f5ff;
+    --accent-color: #6366f1;
+    --accent-secondary: #a855f7;
+    --accent-tertiary: #3b82f6;
+    --text-color: #333333;
+    --text-secondary: #666666;
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(99, 102, 241, 0.3);
+    --glass-shadow: rgba(0, 0, 0, 0.1);
+    --gradient-primary: linear-gradient(135deg, #6366f1, #3b82f6);
+    --gradient-secondary: linear-gradient(135deg, #a855f7, #6366f1);
+    --gradient-dark: linear-gradient(135deg, #f5f5ff, #ffffff);
+    --neon-glow: 0 0 20px rgba(99, 102, 241, 0.5);
+    --neon-glow-pink: 0 0 20px rgba(168, 85, 247, 0.5);
+    --neon-glow-blue: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.1) 0%, transparent 50%) fixed;
+    color: var(--text-color);
+    overflow-x: hidden;
+    line-height: 1.6;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+/* Loading Screen */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-container {
+    text-align: center;
+}
+
+.loading-logo {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.loading-text {
+    font-family: 'Orbitron', monospace;
+    font-size: 2.5rem;
+    font-weight: 900;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: loading-pulse 2s infinite;
+}
+
+.loading-particles {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    border: 2px solid transparent;
+    border-top: 2px solid var(--accent-color);
+    border-radius: 50%;
+    animation: loading-spin 1s linear infinite;
+}
+
+.loading-progress {
+    width: 300px;
+    height: 4px;
+    background: rgba(99, 102, 241, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.loading-bar {
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: 2px;
+    animation: loading-progress 3s ease-in-out;
+}
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.nav-brand {
+    position: relative;
+}
+
+.brand-text {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.5rem;
+    font-weight: 900;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 2;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-menu li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.nav-menu li a::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.nav-menu li a:hover::before {
+    opacity: 1;
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    width: 25px;
+    height: 2px;
+    background: var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0 2rem;
+    padding-bottom: 4rem;
+    margin-top: 100px;
+    background: transparent;
+}
+
+.hero-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    width: 100%;
+}
+
+.hero-left {
+    position: relative;
+}
+
+.hero-decorative-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.hero-tag {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.tag-text {
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid var(--accent-color);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--accent-color);
+}
+
+.tag-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--accent-color);
+    filter: blur(10px);
+    opacity: 0.2;
+    border-radius: 50px;
+}
+
+.hero-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.title-line {
+    display: block;
+    animation: title-reveal 1s ease-out forwards;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.title-line:nth-child(1) { animation-delay: 0.2s; }
+.title-line:nth-child(2) { animation-delay: 0.4s; }
+.title-line:nth-child(3) { animation-delay: 0.6s; }
+
+.glow-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+    max-width: 90%;
+    line-height: 1.8;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.btn-primary, .btn-secondary {
+    position: relative;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: var(--primary-color);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-color);
+    border: 2px solid rgba(99, 102, 241, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.magnetic-btn {
+    transition: transform 0.3s ease;
+}
+
+.magnetic-btn:hover {
+    transform: scale(1.05);
+    box-shadow: var(--neon-glow);
+}
+
+.btn-bg {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-secondary);
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+.btn-primary:hover .btn-bg {
+    left: 0;
+}
+
+.btn-particles {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.btn-primary:hover .btn-particles {
+    opacity: 1;
+}
+
+/* Hero Right */
+.hero-right {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-visual {
+    position: relative;
+    width: 100%;
+    height: 500px;
+}
+
+.hero-3d-element {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.rotating-cube {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: cube-rotate 20s linear infinite;
+}
+
+.cube-face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+}
+
+.cube-face.front { transform: rotateY(0deg) translateZ(100px); }
+.cube-face.back { transform: rotateY(180deg) translateZ(100px); }
+.cube-face.right { transform: rotateY(90deg) translateZ(100px); }
+.cube-face.left { transform: rotateY(-90deg) translateZ(100px); }
+.cube-face.top { transform: rotateX(90deg) translateZ(100px); }
+.cube-face.bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+.hero-stats-floating {
+    position: absolute;
+    top: 0;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.stat-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    padding: 1rem;
+    text-align: center;
+    min-width: 100px;
+    animation: float-stats 3s ease-in-out infinite;
+}
+
+.stat-card:nth-child(2) { animation-delay: 1s; }
+.stat-card:nth-child(3) { animation-delay: 2s; }
+
+.stat-number {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    animation: scroll-bounce 2s infinite;
+    z-index: 10;
+}
+
+.scroll-mouse {
+    width: 24px;
+    height: 40px;
+    border: 2px solid var(--accent-color);
+    border-radius: 12px;
+    position: relative;
+}
+
+.scroll-wheel {
+    width: 4px;
+    height: 8px;
+    background: var(--accent-color);
+    border-radius: 2px;
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scroll-wheel 2s infinite;
+}
+
+.scroll-text {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+/* Diagonal Sections */
+.diagonal-section {
+    position: relative;
+    padding: 8rem 0;
+    overflow: hidden;
+    background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+    margin-top: -1px;
+}
+
+.diagonal-section::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 5px);
+    background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+    transform: skewY(-3deg);
+    transform-origin: top left;
+    z-index: -1;
+}
+
+.diagonal-section-reverse {
+    background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+    margin-top: -1px;
+}
+
+.diagonal-section-reverse::before {
+    transform: skewY(3deg);
+    transform-origin: top right;
+    top: -5px;
+    height: calc(100% + 5px);
+}
+
+.diagonal-bg {
+    position: absolute;
+    top: -5px;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 10px);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), transparent);
+    z-index: -1;
+}
+
+/* Section Headers */
+.section-header {
+    margin-bottom: 4rem;
+}
+
+.section-header.centered {
+    text-align: center;
+}
+
+.section-tag {
+    display: inline-block;
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid var(--accent-color);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 1.2;
+}
+
+.title-part {
+    display: block;
+}
+
+/* Container */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* About Section */
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-image-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    transform: perspective(1000px) rotateY(-5deg);
+}
+
+.about-image-wrapper img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.about-image-wrapper:hover img {
+    transform: scale(1.1);
+}
+
+.image-overlay-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(59, 130, 246, 0.2));
+    mix-blend-mode: overlay;
+}
+
+.floating-metrics {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.metric-item {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    min-width: 120px;
+    animation: float-metrics 4s ease-in-out infinite;
+}
+
+.metric-item:nth-child(2) { animation-delay: 1.3s; }
+.metric-item:nth-child(3) { animation-delay: 2.6s; }
+
+.metric-number {
+    font-family: 'Orbitron', monospace;
+    font-size: 2rem;
+    font-weight: 900;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline;
+}
+
+.metric-plus, .metric-suffix {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--accent-color);
+}
+
+.metric-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+}
+
+.about-content {
+    padding-left: 2rem;
+}
+
+.lead-text {
+    font-size: 1.3rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.about-text p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+/* Services Section */
+.services {
+    padding: 8rem 0;
+    position: relative;
+    background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+    margin-top: -1px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.service-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.magnetic-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+}
+
+.service-icon {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.icon-gradient {
+    display: inline-block;
+    animation: icon-float 3s ease-in-out infinite;
+}
+
+.icon-gradient svg {
+    filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.5));
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.service-card:hover .icon-gradient svg {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 12px rgba(99, 102, 241, 0.7));
+}
+
+.service-card:hover .icon-glow {
+    opacity: 0.3;
+}
+
+.service-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.service-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.service-arrow {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    transform: translateX(-10px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover .service-arrow {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.card-bg {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(59, 130, 246, 0.1));
+    transition: left 0.5s ease;
+    z-index: -1;
+}
+
+.service-card:hover .card-bg {
+    left: 0;
+}
+
+.services-bg-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.bg-shape {
+    position: absolute;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.1;
+}
+
+.bg-shape.shape-1 {
+    width: 300px;
+    height: 300px;
+    top: 20%;
+    left: -150px;
+}
+
+.bg-shape.shape-2 {
+    width: 200px;
+    height: 200px;
+    top: 60%;
+    right: -100px;
+}
+
+.bg-shape.shape-3 {
+    width: 250px;
+    height: 250px;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Portfolio Section */
+.portfolio {
+    padding: 8rem 0;
+    background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+}
+
+.portfolio-filter {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 2px solid rgba(99, 102, 241, 0.1);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-family: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    box-shadow: var(--neon-glow);
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+.portfolio-item {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 16/10;
+    cursor: pointer;
+}
+
+.portfolio-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.portfolio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.9), rgba(59, 130, 246, 0.9));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-item:hover .portfolio-image img {
+    transform: scale(1.1);
+}
+
+.portfolio-content h3 {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.portfolio-content p {
+    font-size: 1rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.portfolio-tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    justify-content: center;
+}
+
+.tag {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--primary-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.portfolio-expand {
+    font-size: 2rem;
+    color: var(--primary-color);
+    animation: pulse-expand 2s infinite;
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 8rem 0;
+    background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+}
+
+.testimonials-slider {
+    position: relative;
+    max-width: 900px;
+    margin: 4rem auto 0;
+    overflow: visible;
+}
+
+.testimonial-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+    position: relative;
+    min-height: 300px;
+}
+
+.testimonial-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    flex-shrink: 0;
+    margin: 0;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: scale(0.9);
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-height: 300px;
+    text-align: center;
+}
+
+.testimonial-card.active {
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+    position: relative;
+    border-color: var(--accent-color);
+    box-shadow: 0 15px 30px rgba(99, 102, 241, 0.15);
+}
+
+.testimonial-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.quote-icon {
+    font-size: 2rem;
+    color: var(--accent-color);
+    opacity: 0.7;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.testimonial-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+    font-style: italic;
+    font-weight: 400;
+    text-align: center;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+}
+
+.testimonial-author img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-color);
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+.author-info {
+    text-align: left;
+}
+
+.author-info h4 {
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    color: var(--text-color);
+    font-size: 1.2rem;
+}
+
+.author-info span {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.testimonial-bg {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1));
+    border-radius: 15px;
+    z-index: 1;
+    transition: left 0.5s ease;
+}
+
+.testimonial-card.active .testimonial-bg {
+    left: 0;
+}
+
+/* Navigation at bottom */
+.testimonials-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+    gap: 2rem;
+}
+
+.nav-arrow {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--accent-color);
+}
+
+.nav-arrow:hover {
+    background: var(--accent-color);
+    color: var(--primary-color);
+    box-shadow: var(--neon-glow);
+    transform: scale(1.1);
+}
+
+.nav-dots {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.dot {
+    width: 35px;
+    height: 8px;
+    border-radius: 4px;
+    background: rgba(99, 102, 241, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: var(--accent-color);
+    width: 45px;
+    box-shadow: var(--neon-glow);
+}
+
+.dot:hover {
+    background: var(--accent-color);
+}
+
+/* FAQ Section */
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.faq-item {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    border-color: var(--accent-color);
+    box-shadow: var(--neon-glow);
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.faq-question h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.faq-icon {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    padding: 0 1.5rem 0;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+    padding: 0 1.5rem 1.5rem;
+}
+
+/* Contact Section */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    margin-top: 4rem;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-item {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateX(10px);
+    border-color: var(--accent-color);
+}
+
+.contact-icon {
+    font-size: 2rem;
+    min-width: 60px;
+    text-align: center;
+}
+
+.contact-details h3 {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.contact-details p {
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.contact-form-container {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-input, .form-textarea, .form-select {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(99, 102, 241, 0.1);
+    border-radius: 10px;
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+}
+
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+    border-color: var(--accent-color);
+    box-shadow: var(--neon-glow);
+}
+
+.form-input::placeholder, .form-textarea::placeholder {
+    color: var(--text-secondary);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* Blog Section */
+.blog {
+    padding: 8rem 0;
+    background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.blog-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.blog-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+}
+
+.blog-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.blog-card:hover .blog-image img {
+    transform: scale(1.1);
+}
+
+.blog-category {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: var(--accent-color);
+    color: var(--primary-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.blog-content {
+    padding: 1.5rem;
+}
+
+.blog-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.blog-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    line-height: 1.4;
+}
+
+.blog-excerpt {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.blog-author {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.blog-author img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Footer */
+.footer {
+    background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+    padding: 4rem 0 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    margin-bottom: 3rem;
+}
+
+.footer-brand {
+    max-width: 400px;
+}
+
+.footer-tagline {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 1.5rem 0 2rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-link {
+    width: 50px;
+    height: 50px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: var(--accent-color);
+    color: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: var(--neon-glow);
+}
+
+.social-icon {
+    font-size: 1.2rem;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.footer-section h4 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-section ul li a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: var(--accent-color);
+}
+
+.contact-list li {
+    display: flex;
+    align-items: center;
+}
+
+.contact-list li svg {
+    flex-shrink: 0;
+}
+
+.contact-list li span {
+    display: inline-block;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(99, 102, 241, 0.1);
+    padding-top: 2rem;
+}
+
+.footer-newsletter-text {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.footer-newsletter-form {
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+
+.footer-newsletter-input {
+    flex-grow: 1;
+    padding: 0.8rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(99, 102, 241, 0.1);
+    border-radius: 10px 0 0 10px;
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: 0.9rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.footer-newsletter-input:focus {
+    border-color: var(--accent-color);
+}
+
+.footer-newsletter-btn {
+    background: var(--gradient-primary);
+    border: none;
+    border-radius: 0 10px 10px 0;
+    padding: 0 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-newsletter-privacy {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.footer-bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-legal a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-legal a:hover {
+    color: var(--accent-color);
+}
+
+.footer-bg-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.footer-shape {
+    position: absolute;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.1;
+}
+
+.footer-shape.shape-1 {
+    width: 300px;
+    height: 300px;
+    top: 20%;
+    left: -150px;
+}
+
+.footer-shape.shape-2 {
+    width: 250px;
+    height: 250px;
+    bottom: 20%;
+    right: -125px;
+}
+
+/* Animations */
+@keyframes loading-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes loading-spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes loading-progress {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+@keyframes title-reveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float-random {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(10px, -10px) rotate(90deg); }
+    50% { transform: translate(-5px, -15px) rotate(180deg); }
+    75% { transform: translate(-10px, 5px) rotate(270deg); }
+}
+
+@keyframes cube-rotate {
+    from { transform: translate(-50%, -50%) rotateX(0deg) rotateY(0deg); }
+    to { transform: translate(-50%, -50%) rotateX(360deg) rotateY(360deg); }
+}
+
+@keyframes float-stats {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes float-metrics {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes icon-float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+@keyframes pulse-expand {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+@keyframes scroll-bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(10px); }
+}
+
+@keyframes scroll-wheel {
+    0% { transform: translateX(-50%) translateY(0); opacity: 1; }
+    100% { transform: translateX(-50%) translateY(16px); opacity: 0; }
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .footer-links {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        margin-top: 80px;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: top 0.5s ease;
+        z-index: 999;
+        visibility: hidden;
+        opacity: 0;
+    }
+    
+    .nav-menu.active {
+        top: 0;
+        visibility: visible;
+        opacity: 1;
+    }
+    
+    .nav-toggle {
+        display: flex;
+        z-index: 1000;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .btn-primary, .btn-secondary {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.95rem;
+        max-width: 85%;
+    }
+    
+    .hero-description, 
+    .lead-text, 
+    .about-text p,
+    .service-description,
+    .testimonial-text,
+    .faq-answer p,
+    .blog-excerpt,
+    .footer-tagline {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .testimonials-slider {
+        margin: 2rem auto 0;
+        max-width: 90%;
+    }
+    
+    .testimonial-card {
+        padding: 1.5rem;
+        min-height: 420px;
+    }
+    
+    .testimonial-text {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+    }
+    
+    .testimonial-author {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+    }
+    
+    .testimonial-author img {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .author-info {
+        text-align: center;
+    }
+    
+    .testimonials-navigation {
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+    
+    .nav-arrow {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .nav-arrow svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .dot {
+        width: 25px;
+        height: 6px;
+    }
+    
+    .dot.active {
+        width: 35px;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-links {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-bottom-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .floating-metrics {
+        position: static;
+        transform: none;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+    
+    .hero,
+    .about,
+    .services,
+    .portfolio,
+    .testimonials,
+    .faq,
+    .contact,
+    .blog {
+        padding: 5rem 0;
+    }
+    
+    .section-header {
+        margin-bottom: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        margin-top: 70px;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .btn-primary, .btn-secondary {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+        max-width: 80%;
+    }
+    
+    .portfolio-filter {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-description, 
+    .lead-text, 
+    .about-text p,
+    .service-description,
+    .testimonial-text,
+    .faq-answer p,
+    .blog-excerpt,
+    .footer-tagline {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+    
+    .hero,
+    .about,
+    .services,
+    .portfolio,
+    .testimonials,
+    .faq,
+    .contact,
+    .blog {
+        padding: 4rem 0;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .service-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Performance Optimizations */
+.will-change {
+    will-change: transform;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: light) {
+    :root {
+        --primary-color: #ffffff;
+        --secondary-color: #f5f5ff;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-container">
+            <div class="loading-logo">
+                <span class="loading-text">kismetcreativeco</span>
+                <div class="loading-particles"></div>
+            </div>
+            <div class="loading-progress">
+                <div class="loading-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h1 class="brand-text">kismetcreativeco</h1>
+    
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#services" data-text="Services">Services</a></li>
+                <li><a href="#about" data-text="About">About</a></li>
+                <li><a href="#portfolio" data-text="Portfolio">Portfolio</a></li>
+                <li><a href="#contact" data-text="Contact">Contact</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-container">
+            <div class="hero-left">
+
+                
+                <div class="hero-content">
+                    <div class="hero-tag">
+                        <span class="tag-text">Digital Marketing Revolution</span>
+                        <div class="tag-glow"></div>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        <span class="title-line">Digital Marketing</span>
+                        <span class="title-line" style="background: linear-gradient(90deg, #6366f1, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">That Dominates</span>
+                        <span class="title-line">The Future</span>
+                    </h1>
+                    
+                    <p class="hero-description">
+                        We transform ambitious brands into market leaders through cutting-edge 
+                        digital strategies, AI-powered campaigns, and revolutionary technology solutions 
+                        that deliver unprecedented growth.
+                    </p>
+                    
+                    <div class="hero-buttons">
+                        <button class="btn-primary magnetic-btn">
+                            <span class="btn-text">Start Revolution</span>
+                            <div class="btn-bg"></div>
+                            <div class="btn-particles"></div>
+                        </button>
+                        <button class="btn-secondary">
+                            <span class="btn-text">View Cases</span>
+                            <div class="btn-icon">→</div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-right">
+                <div class="hero-visual">
+                    <div class="hero-3d-element">
+                        <div class="rotating-cube">
+                            <div class="cube-face front"></div>
+                            <div class="cube-face back"></div>
+                            <div class="cube-face right"></div>
+                            <div class="cube-face left"></div>
+                            <div class="cube-face top"></div>
+                            <div class="cube-face bottom"></div>
+                        </div>
+                    </div>
+                    <div class="hero-stats-floating">
+                        <div class="stat-card">
+                            <div class="stat-number">300+</div>
+                            <div class="stat-label">Clients</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">500%</div>
+                            <div class="stat-label">ROI</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Support</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span class="scroll-text">Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- About Section - Diagonal -->
+    <section class="about diagonal-section" id="about">
+        <div class="diagonal-bg"></div>
+        <div class="container">
+            <div class="about-container">
+                <div class="about-visual">
+                    <div class="about-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop&crop=faces" alt="Team collaboration">
+                        <div class="image-overlay-pattern"></div>
+                    </div>
+
+                </div>
+                
+                <div class="about-content">
+                    <div class="section-header">
+                        <span class="section-tag">About Us</span>
+                        <h2 class="section-title">
+                            <span class="title-part">Transforming Brands</span>
+                            <span class="title-part glow-text">Into Digital</span>
+                            <span class="title-part">Powerhouses</span>
+                        </h2>
+                    </div>
+                    
+                    <div class="about-text">
+                        <p class="lead-text">
+                            We're not just another digital marketing agency. We're growth hackers, 
+                            data scientists, and creative visionaries who live and breathe digital transformation.
+                        </p>
+                        <p>
+                            Our team combines cutting-edge AI technology with human creativity to deliver 
+                            campaigns that don't just meet expectations—they redefine entire industries. 
+                            From startups to Fortune 500 companies, we've helped brands achieve impossible growth.
+                        </p>
+                    </div>
+                    
+                    <button class="btn-primary magnetic-btn">
+                        <span class="btn-text">Our Story</span>
+                        <div class="btn-bg"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-tag">What We Do</span>
+                <h2 class="section-title">
+                    <span class="title-part">Services That</span>
+                    <span class="title-part glow-text">Drive Results</span>
+                </h2>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card magnetic-card" data-tilt>
+                    <div class="service-icon">
+                        <div class="icon-gradient">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 3H3C1.9 3 1 3.9 1 5V19C1 20.1 1.9 21 3 21H21C22.1 21 23 20.1 23 19V5C23 3.9 22.1 3 21 3ZM21 19H3V5H21V19Z" fill="url(#paint0_linear_web)"/>
+                                <path d="M4 7H20V9H4V7ZM4 11H20V13H4V11ZM4 15H20V17H4V15Z" fill="url(#paint0_linear_web)"/>
+                                <defs>
+                                    <linearGradient id="paint0_linear_web" x1="1" y1="12" x2="23" y2="12" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#6366f1"/>
+                                        <stop offset="1" stop-color="#a855f7"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="service-title">Website Design</h3>
+                    <p class="service-description">Revolutionary web experiences that convert visitors into loyal customers through advanced UX psychology.</p>
+                    <div class="service-arrow">→</div>
+                    <div class="card-bg"></div>
+                </div>
+                
+                <div class="service-card magnetic-card" data-tilt>
+                    <div class="service-icon">
+                        <div class="icon-gradient">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z" fill="url(#paint1_linear_seo)"/>
+                                <defs>
+                                    <linearGradient id="paint1_linear_seo" x1="3" y1="12" x2="20.49" y2="12" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#6366f1"/>
+                                        <stop offset="1" stop-color="#a855f7"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="service-title">AI-Powered SEO</h3>
+                    <p class="service-description">Machine learning algorithms that predict search trends and dominate rankings before competitors even know what hit them.</p>
+                    <div class="service-arrow">→</div>
+                    <div class="card-bg"></div>
+                </div>
+                
+                <div class="service-card magnetic-card" data-tilt>
+                    <div class="service-icon">
+                        <div class="icon-gradient">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17 1.01L7 1C5.9 1 5 1.9 5 3V21C5 22.1 5.9 23 7 23H17C18.1 23 19 22.1 19 21V3C19 1.9 18.1 1.01 17 1.01ZM17 19H7V5H17V19Z" fill="url(#paint2_linear_mobile)"/>
+                                <path d="M12 22C12.83 22 13.5 21.33 13.5 20.5C13.5 19.67 12.83 19 12 19C11.17 19 10.5 19.67 10.5 20.5C10.5 21.33 11.17 22 12 22Z" fill="url(#paint2_linear_mobile)"/>
+                                <defs>
+                                    <linearGradient id="paint2_linear_mobile" x1="5" y1="12" x2="19" y2="12" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#6366f1"/>
+                                        <stop offset="1" stop-color="#a855f7"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="service-title">Precision Ads</h3>
+                    <p class="service-description">Hyper-targeted advertising campaigns that maximize ROI through advanced audience intelligence and real-time optimization.</p>
+                    <div class="service-arrow">→</div>
+                    <div class="card-bg"></div>
+                </div>
+                
+                <div class="service-card magnetic-card" data-tilt>
+                    <div class="service-icon">
+                        <div class="icon-gradient">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM9 17H7V10H9V17ZM13 17H11V7H13V17ZM17 17H15V13H17V17Z" fill="url(#paint3_linear_stats)"/>
+                                <defs>
+                                    <linearGradient id="paint3_linear_stats" x1="3" y1="12" x2="21" y2="12" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#6366f1"/>
+                                        <stop offset="1" stop-color="#a855f7"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="service-title">Social Domination</h3>
+                    <p class="service-description">Viral content strategies and influencer networks that make your brand the talk of every platform.</p>
+                    <div class="service-arrow">→</div>
+                    <div class="card-bg"></div>
+                </div>
+                
+                <div class="service-card magnetic-card" data-tilt>
+                    <div class="service-icon">
+                        <div class="icon-gradient">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 2H6C4.9 2 4.01 2.9 4.01 4L4 20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2ZM16 18H8V16H16V18ZM16 14H8V12H16V14ZM13 9V3.5L18.5 9H13Z" fill="url(#paint4_linear_content)"/>
+                                <defs>
+                                    <linearGradient id="paint4_linear_content" x1="4" y1="12" x2="20" y2="12" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#6366f1"/>
+                                        <stop offset="1" stop-color="#a855f7"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="service-title">Content Engine</h3>
+                    <p class="service-description">AI-assisted content creation that produces engaging, converting copy at scale while maintaining your unique brand voice.</p>
+                    <div class="service-arrow">→</div>
+                    <div class="card-bg"></div>
+                </div>
+                
+                <div class="service-card magnetic-card" data-tilt>
+                    <div class="service-icon">
+                        <div class="icon-gradient">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4C16.42 4 20 7.58 20 12C20 16.42 16.42 20 12 20Z" fill="url(#paint5_linear_target)"/>
+                                <path d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z" fill="url(#paint5_linear_target)"/>
+                                <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" fill="url(#paint5_linear_target)"/>
+                                <defs>
+                                    <linearGradient id="paint5_linear_target" x1="2" y1="12" x2="22" y2="12" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#6366f1"/>
+                                        <stop offset="1" stop-color="#a855f7"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="service-title">Brand Revolution</h3>
+                    <p class="service-description">Complete brand transformations that position you as the industry leader through strategic visual identity and messaging.</p>
+                    <div class="service-arrow">→</div>
+                    <div class="card-bg"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="services-bg-elements">
+            <div class="bg-shape shape-1"></div>
+            <div class="bg-shape shape-2"></div>
+            <div class="bg-shape shape-3"></div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio diagonal-section-reverse" id="portfolio">
+        <div class="diagonal-bg"></div>
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-tag">Our Work</span>
+                <h2 class="section-title">
+                    <span class="title-part">Portfolio That</span>
+                    <span class="title-part glow-text">Speaks Volume</span>
+                </h2>
+            </div>
+            
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="web">Web Design</button>
+                <button class="filter-btn" data-filter="seo">SEO Campaigns</button>
+                <button class="filter-btn" data-filter="social">Social Media</button>
+                <button class="filter-btn" data-filter="ads">Advertising</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="web">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="E-commerce Platform">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h3>E-commerce Revolution</h3>
+                                <p>300% Conversion Increase</p>
+                                <div class="portfolio-tags">
+                                    <span class="tag">UI/UX</span>
+                                    <span class="tag">E-commerce</span>
+                                </div>
+                            </div>
+                            <div class="portfolio-expand">⚡</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="seo">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" alt="SEO Dashboard">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h3>SEO Domination</h3>
+                                <p>1200% Traffic Growth</p>
+                                <div class="portfolio-tags">
+                                    <span class="tag">SEO</span>
+                                    <span class="tag">Analytics</span>
+                                </div>
+                            </div>
+                            <div class="portfolio-expand">⚡</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="social">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop" alt="Social Campaign">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h3>Viral Campaign</h3>
+                                <p>5M+ Impressions</p>
+                                <div class="portfolio-tags">
+                                    <span class="tag">Social</span>
+                                    <span class="tag">Viral</span>
+                                </div>
+                            </div>
+                            <div class="portfolio-expand">⚡</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="ads">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=600&h=400&fit=crop" alt="Ad Campaign">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h3>Precision Advertising</h3>
+                                <p>800% ROI Achievement</p>
+                                <div class="portfolio-tags">
+                                    <span class="tag">PPC</span>
+                                    <span class="tag">ROI</span>
+                                </div>
+                            </div>
+                            <div class="portfolio-expand">⚡</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="web">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&h=400&fit=crop" alt="Mobile App">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h3>Mobile Experience</h3>
+                                <p>4.9★ App Store Rating</p>
+                                <div class="portfolio-tags">
+                                    <span class="tag">Mobile</span>
+                                    <span class="tag">UX</span>
+                                </div>
+                            </div>
+                            <div class="portfolio-expand">⚡</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="social">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&h=400&fit=crop" alt="Brand Strategy">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h3>Brand Transformation</h3>
+                                <p>Complete Brand Overhaul</p>
+                                <div class="portfolio-tags">
+                                    <span class="tag">Branding</span>
+                                    <span class="tag">Strategy</span>
+                                </div>
+                            </div>
+                            <div class="portfolio-expand">⚡</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-tag">Testimonials</span>
+                <h2 class="section-title">
+                    <span class="title-part">What Industry</span>
+                    <span class="title-part glow-text">Leaders Say</span>
+                </h2>
+            </div>
+            
+            <div class="testimonials-slider">
+                <div class="testimonial-track">
+                    <div class="testimonial-card active">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">❝</div>
+                            <p class="testimonial-text">
+                                "kismetcreativeco revolutionized our entire business model. Their AI-powered strategies generated a 1400% increase in qualified leads within the first quarter."
+                            </p>
+                            <div class="testimonial-author">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="John Smith">
+                                <div class="author-info">
+                                    <h4>John Smith</h4>
+                                    <span>CEO, TechCorp Industries</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-bg"></div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">❝</div>
+                            <p class="testimonial-text">
+                                "Working with kismetcreativeco was like plugging into the future of marketing. Their data-driven approach delivered results we never thought possible."
+                            </p>
+                            <div class="testimonial-author">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="Sarah Johnson">
+                                <div class="author-info">
+                                    <h4>Sarah Johnson</h4>
+                                    <span>CMO, Innovation Labs</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-bg"></div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">❝</div>
+                            <p class="testimonial-text">
+                                "These aren't just marketers—they're growth hackers who understand the psychology of digital conversion. Our ROI increased by 850% in six months."
+                            </p>
+                            <div class="testimonial-author">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="Michael Chen">
+                                <div class="author-info">
+                                    <h4>Michael Chen</h4>
+                                    <span>Founder, StartupX</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-bg"></div>
+                    </div>
+                </div>
+                
+                <div class="testimonials-navigation">
+                    <button class="nav-arrow prev-arrow" id="prevArrow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 18L9 12L15 6" stroke="url(#arrowGradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <defs>
+                                <linearGradient id="arrowGradient" x1="9" y1="12" x2="15" y2="12" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#6366f1"/>
+                                    <stop offset="1" stop-color="#a855f7"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </button>
+                    
+                    <div class="nav-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    
+                    <button class="nav-arrow next-arrow" id="nextArrow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 6L15 12L9 18" stroke="url(#arrowGradient2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <defs>
+                                <linearGradient id="arrowGradient2" x1="9" y1="12" x2="15" y2="12" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#6366f1"/>
+                                    <stop offset="1" stop-color="#a855f7"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq diagonal-section" id="faq">
+        <div class="diagonal-bg"></div>
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-tag">FAQ</span>
+                <h2 class="section-title">
+                    <span class="title-part">Questions &</span>
+                    <span class="title-part glow-text">Answers</span>
+                </h2>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How quickly can we expect to see results?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our AI-powered strategies typically show initial results within 30 days, with significant improvements visible in 60-90 days. However, the timeline varies based on your industry, competition, and goals.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What makes your approach different from other agencies?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We combine cutting-edge AI technology with human creativity, using predictive analytics and machine learning to optimize campaigns in real-time. Our data-driven approach ensures every dollar spent delivers maximum ROI.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you work with businesses of all sizes?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! From ambitious startups to Fortune 500 companies, we scale our strategies to match your business size, budget, and growth objectives. Our technology adapts to businesses at any stage.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What industries do you specialize in?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We've successfully transformed businesses across tech, e-commerce, healthcare, finance, SaaS, and professional services. Our adaptable methodology works across industries while respecting sector-specific nuances.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact diagonal-section-reverse" id="contact">
+        <div class="diagonal-bg"></div>
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-tag">Get In Touch</span>
+                <h2 class="section-title">
+                    <span class="title-part">Ready To</span>
+                    <span class="title-part glow-text">Dominate</span>
+                    <span class="title-part">Your Market?</span>
+                </h2>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" fill="url(#paint_location)"/>
+                                <defs>
+                                    <linearGradient id="paint_location" x1="5" y1="12" x2="19" y2="12" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#6366f1"/>
+                                        <stop offset="1" stop-color="#a855f7"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Headquarters</h3>
+                            <p>1 SE 3rd Ave Suite 2050<br>Miami, FL 33131</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20.01 15.38C18.78 15.38 17.59 15.18 16.48 14.82C16.13 14.7 15.74 14.79 15.47 15.06L13.9 17.03C11.07 15.68 8.42 13.13 7.01 10.2L8.96 8.54C9.23 8.26 9.31 7.87 9.2 7.52C8.83 6.41 8.64 5.22 8.64 3.99C8.64 3.45 8.19 3 7.65 3H4.19C3.65 3 3 3.24 3 3.99C3 13.28 10.73 21 20.01 21C20.72 21 21 20.37 21 19.82V16.37C21 15.83 20.55 15.38 20.01 15.38Z" fill="url(#paint_phone)"/>
+                                <defs>
+                                    <linearGradient id="paint_phone" x1="3" y1="12" x2="21" y2="12" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#6366f1"/>
+                                        <stop offset="1" stop-color="#a855f7"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Direct Line</h3>
+                            <p>305-420-5556</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z" fill="url(#paint_email)"/>
+                                <defs>
+                                    <linearGradient id="paint_email" x1="2" y1="12" x2="22" y2="12" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#6366f1"/>
+                                        <stop offset="1" stop-color="#a855f7"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>{{business_email}}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" fill="url(#paint_response)"/>
+                                <defs>
+                                    <linearGradient id="paint_response" x1="3" y1="12" x2="21" y2="12" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#6366f1"/>
+                                        <stop offset="1" stop-color="#a855f7"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Response Time</h3>
+                            <p>Within 24 hours</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <form class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" placeholder="Your Name" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="Your Email" class="form-input" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="text" placeholder="Company & Position" class="form-input">
+                        </div>
+                        
+                        <div class="form-group">
+                            <select class="form-input form-select">
+                                <option value="">Select Service Interest</option>
+                                <option value="web-design">Website Design</option>
+                                <option value="seo">AI-Powered SEO</option>
+                                <option value="ads">Precision Advertising</option>
+                                <option value="social">Social Domination</option>
+                                <option value="content">Content Engine</option>
+                                <option value="branding">Brand Revolution</option>
+                                <option value="full-service">Full-Service Package</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea placeholder="Tell us about your project and goals..." class="form-textarea" rows="5"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary magnetic-btn full-width">
+                            <span class="btn-text">Start Your Transformation</span>
+                            <div class="btn-bg"></div>
+                            <div class="btn-particles"></div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog" id="blog">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-tag">Insights</span>
+                <h2 class="section-title">
+                    <span class="title-part">Latest</span>
+                    <span class="title-part glow-text">Intelligence</span>
+                </h2>
+            </div>
+            
+            <div class="blog-grid">
+                <article class="blog-card magnetic-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop" alt="AI Marketing">
+                        <div class="blog-category">AI Marketing</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">March 15, 2024</span>
+                            <span class="blog-read-time">5 min read</span>
+                        </div>
+                        <h3 class="blog-title">The Future of AI in Digital Marketing</h3>
+                        <p class="blog-excerpt">
+                            Discover how machine learning algorithms are revolutionizing customer targeting 
+                            and campaign optimization in 2024.
+                        </p>
+                        <div class="blog-author">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face" alt="Author">
+                            <span>Marcus Chen</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="blog-card magnetic-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop" alt="SEO Trends">
+                        <div class="blog-category">SEO Strategy</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">March 12, 2024</span>
+                            <span class="blog-read-time">7 min read</span>
+                        </div>
+                        <h3 class="blog-title">SEO Trends That Will Dominate 2024</h3>
+                        <p class="blog-excerpt">
+                            Stay ahead of algorithm updates and ranking factors that smart 
+                            businesses are already implementing.
+                        </p>
+                        <div class="blog-author">
+                            <img src="https://public.youware.com/users-website-assets/prod/4ff61075-23f8-4187-ba17-d1a22ec3f7b9/woman-7338402_1280.jpg" alt="Author" style="width: 40px; height: 40px; object-fit: cover; border-radius: 50%;">
+                            <span>Sarah Mitchell</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="blog-card magnetic-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=250&fit=crop" alt="Social Media">
+                        <div class="blog-category">Social Media</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">March 10, 2024</span>
+                            <span class="blog-read-time">6 min read</span>
+                        </div>
+                        <h3 class="blog-title">Creating Viral Content That Converts</h3>
+                        <p class="blog-excerpt">
+                            The psychology behind viral content and how to engineer 
+                            posts that drive both engagement and sales.
+                        </p>
+                        <div class="blog-author">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face" alt="Author">
+                            <span>David Rodriguez</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <h3 class="brand-text glow-text">kismetcreativeco</h3>
+                        <p class="footer-tagline">
+                            Transforming ambitious brands into digital powerhouses through 
+                            revolutionary marketing strategies and cutting-edge technology.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="LinkedIn">
+                                <div class="social-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M20.447 20.452H16.893V14.883C16.893 13.555 16.866 11.846 15.041 11.846C13.188 11.846 12.905 13.291 12.905 14.785V20.452H9.351V9H12.765V10.561H12.811C13.288 9.661 14.448 8.711 16.181 8.711C19.782 8.711 20.448 11.081 20.448 14.166V20.452H20.447ZM5.337 7.433C4.193 7.433 3.274 6.507 3.274 5.368C3.274 4.23 4.194 3.305 5.337 3.305C6.477 3.305 7.401 4.23 7.401 5.368C7.401 6.507 6.476 7.433 5.337 7.433ZM7.119 20.452H3.555V9H7.119V20.452ZM22.225 0H1.771C0.792 0 0 0.774 0 1.729V22.271C0 23.227 0.792 24 1.771 24H22.222C23.2 24 24 23.227 24 22.271V1.729C24 0.774 23.2 0 22.222 0H22.225Z" fill="url(#paint_linkedin)"/>
+                                        <defs>
+                                            <linearGradient id="paint_linkedin" x1="0" y1="12" x2="24" y2="12" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#6366f1"/>
+                                                <stop offset="1" stop-color="#a855f7"/>
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </div>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <div class="social-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M23.953 4.57C23.069 4.948 22.124 5.198 21.129 5.307C22.143 4.718 22.923 3.775 23.292 2.64C22.341 3.179 21.287 3.567 20.165 3.774C19.269 2.838 17.993 2.246 16.574 2.246C13.857 2.246 11.654 4.449 11.654 7.163C11.654 7.535 11.699 7.898 11.781 8.246C7.691 8.057 4.066 6.13 1.64 3.161C1.213 3.884 0.974 4.718 0.974 5.616C0.974 7.335 1.844 8.849 3.162 9.723C2.355 9.696 1.596 9.484 0.934 9.127V9.192C0.934 11.589 2.627 13.582 4.902 14.024C4.488 14.135 4.049 14.194 3.595 14.194C3.279 14.194 2.973 14.163 2.677 14.107C3.296 16.062 5.118 17.463 7.272 17.5C5.592 18.81 3.463 19.61 1.17 19.61C0.78 19.61 0.391 19.588 0 19.544C2.179 20.937 4.768 21.752 7.548 21.752C16.569 21.752 21.556 14.267 21.556 7.718C21.556 7.514 21.552 7.31 21.543 7.108C22.505 6.44 23.334 5.607 24 4.665L23.953 4.57Z" fill="url(#paint_twitter)"/>
+                                        <defs>
+                                            <linearGradient id="paint_twitter" x1="0" y1="12" x2="24" y2="12" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#6366f1"/>
+                                                <stop offset="1" stop-color="#a855f7"/>
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </div>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Instagram">
+                                <div class="social-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2.163C15.204 2.163 15.584 2.175 16.85 2.233C20.102 2.381 21.621 3.924 21.769 7.152C21.827 8.417 21.838 8.797 21.838 12.001C21.838 15.206 21.826 15.585 21.769 16.85C21.62 20.075 20.105 21.621 16.85 21.769C15.584 21.827 15.206 21.839 12 21.839C8.796 21.839 8.416 21.827 7.151 21.769C3.891 21.62 2.38 20.07 2.232 16.849C2.174 15.584 2.162 15.205 2.162 12C2.162 8.796 2.175 8.417 2.232 7.151C2.381 3.924 3.896 2.38 7.151 2.232C8.417 2.175 8.796 2.163 12 2.163ZM12 0C8.741 0 8.333 0.014 7.053 0.072C2.695 0.272 0.273 2.69 0.073 7.052C0.014 8.333 0 8.741 0 12C0 15.259 0.014 15.668 0.072 16.948C0.272 21.306 2.69 23.728 7.052 23.928C8.333 23.986 8.741 24 12 24C15.259 24 15.668 23.986 16.948 23.928C21.302 23.728 23.73 21.31 23.927 16.948C23.986 15.668 24 15.259 24 12C24 8.741 23.986 8.333 23.928 7.053C23.732 2.699 21.311 0.273 16.949 0.073C15.668 0.014 15.259 0 12 0ZM12 5.838C8.597 5.838 5.838 8.597 5.838 12C5.838 15.403 8.597 18.162 12 18.162C15.403 18.162 18.162 15.403 18.162 12C18.162 8.597 15.403 5.838 12 5.838ZM12 16C9.791 16 8 14.209 8 12C8 9.791 9.791 8 12 8C14.209 8 16 9.791 16 12C16 14.209 14.209 16 12 16ZM18.406 4.155C18.406 4.955 17.761 5.6 16.961 5.6C16.161 5.6 15.516 4.955 15.516 4.155C15.516 3.355 16.161 2.71 16.961 2.71C17.761 2.71 18.406 3.355 18.406 4.155Z" fill="url(#paint_instagram)"/>
+                                        <defs>
+                                            <linearGradient id="paint_instagram" x1="0" y1="12" x2="24" y2="12" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#6366f1"/>
+                                                <stop offset="1" stop-color="#a855f7"/>
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </div>
+                            </a>
+                            <a href="#" class="social-link" aria-label="YouTube">
+                                <div class="social-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M23.498 6.186C23.256 5.282 22.565 4.591 21.661 4.349C19.765 3.886 12 3.886 12 3.886C12 3.886 4.235 3.886 2.339 4.349C1.435 4.591 0.744 5.282 0.502 6.186C0.039 8.082 0.039 12 0.039 12C0.039 12 0.039 15.918 0.502 17.814C0.744 18.718 1.435 19.409 2.339 19.651C4.235 20.114 12 20.114 12 20.114C12 20.114 19.765 20.114 21.661 19.651C22.565 19.409 23.256 18.718 23.498 17.814C23.961 15.918 23.961 12 23.961 12C23.961 12 23.961 8.082 23.498 6.186ZM9.545 15.568V8.432L15.818 12L9.545 15.568Z" fill="url(#paint_youtube)"/>
+                                        <defs>
+                                            <linearGradient id="paint_youtube" x1="0.039" y1="12" x2="23.961" y2="12" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#6366f1"/>
+                                                <stop offset="1" stop-color="#a855f7"/>
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-links">
+                        
+                        <div class="footer-section">
+                            <h4>Company</h4>
+                            <ul>
+                                <li><a href="#about">About Us</a></li>
+                                <li><a href="#portfolio">Portfolio</a></li>
+                                <li><a href="#testimonials">Testimonials</a></li>
+                                <li><a href="#blog">Blog</a></li>
+                                <li><a href="#contact">Contact</a></li>
+                                <li><a href="#">Careers</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-section">
+                            <h4>Resources</h4>
+                            <ul>
+                                <li><a href="#">Case Studies</a></li>
+                                <li><a href="#">White Papers</a></li>
+                                <li><a href="#">Marketing Tools</a></li>
+                                <li><a href="#">Industry Reports</a></li>
+                                <li><a href="#">Webinars</a></li>
+                                <li><a href="#">Podcast</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-section">
+                            <h4>Contact</h4>
+                            <ul class="contact-list">
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 5px;">
+                                        <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" fill="url(#paint_location_footer)"/>
+                                        <defs>
+                                            <linearGradient id="paint_location_footer" x1="5" y1="12" x2="19" y2="12" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#6366f1"/>
+                                                <stop offset="1" stop-color="#a855f7"/>
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                    <span>Miami, FL 33131</span>
+                                </li>
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 5px;">
+                                        <path d="M20.01 15.38C18.78 15.38 17.59 15.18 16.48 14.82C16.13 14.7 15.74 14.79 15.47 15.06L13.9 17.03C11.07 15.68 8.42 13.13 7.01 10.2L8.96 8.54C9.23 8.26 9.31 7.87 9.2 7.52C8.83 6.41 8.64 5.22 8.64 3.99C8.64 3.45 8.19 3 7.65 3H4.19C3.65 3 3 3.24 3 3.99C3 13.28 10.73 21 20.01 21C20.72 21 21 20.37 21 19.82V16.37C21 15.83 20.55 15.38 20.01 15.38Z" fill="url(#paint_phone_footer)"/>
+                                        <defs>
+                                            <linearGradient id="paint_phone_footer" x1="3" y1="12" x2="21" y2="12" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#6366f1"/>
+                                                <stop offset="1" stop-color="#a855f7"/>
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                    <span>305-420-5556</span>
+                                </li>
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 5px;">
+                                        <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z" fill="url(#paint_email_footer)"/>
+                                        <defs>
+                                            <linearGradient id="paint_email_footer" x1="2" y1="12" x2="22" y2="12" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#6366f1"/>
+                                                <stop offset="1" stop-color="#a855f7"/>
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                    <span>{{business_email}}</span>
+                                </li>
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 5px;">
+                                        <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" fill="url(#paint_support_footer)"/>
+                                        <defs>
+                                            <linearGradient id="paint_support_footer" x1="3" y1="12" x2="21" y2="12" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#6366f1"/>
+                                                <stop offset="1" stop-color="#a855f7"/>
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                    <span>24/7 Support</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-section">
+                            <h4>Newsletter</h4>
+                            <p class="footer-newsletter-text">Subscribe for marketing insights and exclusive strategies.</p>
+                            <form class="footer-newsletter-form">
+                                <input type="email" placeholder="Your email address" class="footer-newsletter-input">
+                                <button type="submit" class="btn-primary footer-newsletter-btn">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="#ffffff"/>
+                                    </svg>
+                                </button>
+                            </form>
+                            <p class="footer-newsletter-privacy">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 5px;">
+                                    <path d="M18 8H17V6C17 3.24 14.76 1 12 1C9.24 1 7 3.24 7 6V8H6C4.9 8 4 8.9 4 10V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V10C20 8.9 19.1 8 18 8ZM12 17C10.9 17 10 16.1 10 15C10 13.9 10.9 13 12 13C13.1 13 14 13.9 14 15C14 16.1 13.1 17 12 17ZM15.1 8H8.9V6C8.9 4.29 10.29 2.9 12 2.9C13.71 2.9 15.1 4.29 15.1 6V8Z" fill="url(#paint_lock_footer)"/>
+                                    <defs>
+                                        <linearGradient id="paint_lock_footer" x1="4" y1="12" x2="20" y2="12" gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#6366f1"/>
+                                            <stop offset="1" stop-color="#a855f7"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                                <span>We respect your privacy.</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <div class="footer-bottom-content">
+                        <p>© 2024 kismetcreativeco. All rights reserved.</p>
+                        <div class="footer-legal">
+                            <a href="#">Privacy Policy</a>
+                            <a href="#">Terms of Service</a>
+                            <a href="#">Cookie Policy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bg-elements">
+            <div class="footer-shape shape-1"></div>
+            <div class="footer-shape shape-2"></div>
+        </div>
+    </footer>
+
+    <script>
+        // DOM Elements
+        const loadingScreen = document.querySelector('.loading-screen');
+
+        const faqItems = document.querySelectorAll('.faq-item');
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        const magneticElements = document.querySelectorAll('.magnetic-btn, .magnetic-card');
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        const counterElements = document.querySelectorAll('.metric-number');
+
+        // Loading Screen
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                loadingScreen.classList.add('hidden');
+                document.body.classList.add('loaded');
+                
+                // Start counter animations when page loads
+                startCounters();
+            }, 3000);
+        });
+
+        // FAQ Accordion
+        function initFAQ() {
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all first
+                    faqItems.forEach(faq => faq.classList.remove('active'));
+                    
+                    // Then open the clicked one if it wasn't active
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        // Testimonial Slider
+        function initTestimonialSlider() {
+            const slider = document.querySelector('.testimonials-slider');
+            if (!slider) return;
+            
+            const slides = slider.querySelectorAll('.testimonial-card');
+            const dots = slider.querySelectorAll('.dot');
+            const prevArrow = document.getElementById('prevArrow');
+            const nextArrow = document.getElementById('nextArrow');
+            
+            let currentIndex = 0;
+
+            function goToSlide(index) {
+                if (index < 0) index = slides.length - 1;
+                if (index >= slides.length) index = 0;
+                
+                currentIndex = index;
+                
+                // Update active state for slides
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === currentIndex);
+                });
+                
+                // Update active state for dots
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentIndex);
+                });
+            }
+            
+            // Initialize first slide
+            goToSlide(0);
+            
+            // Event listeners for navigation arrows
+            if (prevArrow) {
+                prevArrow.addEventListener('click', () => {
+                    goToSlide(currentIndex - 1);
+                });
+            }
+            
+            if (nextArrow) {
+                nextArrow.addEventListener('click', () => {
+                    goToSlide(currentIndex + 1);
+                });
+            }
+            
+            // Removed click events for dots - only update their appearance
+            
+            // Auto-play removed - only manual navigation with arrows
+            
+            // Touch swipe functionality removed - only arrow navigation
+        }
+
+        // Portfolio Filter
+        function initPortfolioFilter() {
+            if (!filterBtns.length || !portfolioItems.length) return;
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    const filter = btn.getAttribute('data-filter');
+                    
+                    portfolioItems.forEach(item => {
+                        const category = item.getAttribute('data-category');
+                        
+                        if (filter === 'all' || filter === category) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'scale(1)';
+                            }, 50);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'scale(0.8)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+        }
+
+        // Magnetic Effect
+        function initMagneticEffect() {
+            magneticElements.forEach(element => {
+                element.addEventListener('mousemove', e => {
+                    const rect = element.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const distanceX = x - centerX;
+                    const distanceY = y - centerY;
+                    
+                    const strength = 0.1;
+                    
+                    element.style.transform = `translate(${distanceX * strength}px, ${distanceY * strength}px)`;
+                });
+                
+                element.addEventListener('mouseleave', () => {
+                    element.style.transform = 'translate(0, 0)';
+                });
+            });
+        }
+
+        // Counter Animation for Stats
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.textContent);
+                const suffix = stat.textContent.match(/[^\d\.]+/g);
+                
+                const duration = 2000;
+                const interval = 20;
+                const steps = duration / interval;
+                const step = target / steps;
+                let current = 0;
+                
+                const counter = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                        stat.textContent = target + (suffix ? suffix[0] : '');
+                        clearInterval(counter);
+                    } else {
+                        stat.textContent = Math.floor(current) + (suffix ? suffix[0] : '');
+                    }
+                }, interval);
+            });
+        }
+
+        // Counter Animation
+        function startCounters() {
+            counterElements.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                const duration = 2000; // ms
+                const start = 0;
+                const increment = Math.ceil(target / (duration / 30)); // Update every 30ms
+                
+                let current = start;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    
+                    if (current >= target) {
+                        counter.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = current;
+                    }
+                }, 30);
+            });
+        }
+
+        // Scroll Animations
+        function initScrollAnimations() {
+            const sections = document.querySelectorAll('section');
+            
+            function handleScroll() {
+                const scrollY = window.scrollY;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - window.innerHeight * 0.6;
+                    
+                    if (scrollY > sectionTop) {
+                        section.classList.add('in-view');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', handleScroll);
+            handleScroll(); // Initial check
+        }
+
+        // Mobile Navigation
+        function initMobileNav() {
+            if (!navToggle || !navMenu) return;
+            
+            navToggle.addEventListener('click', () => {
+                navToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+
+        // Form Validation
+        function initFormValidation() {
+            const forms = document.querySelectorAll('form');
+            
+            forms.forEach(form => {
+                form.addEventListener('submit', e => {
+                    e.preventDefault();
+                    
+                    // Simple validation
+                    let isValid = true;
+                    const requiredFields = form.querySelectorAll('[required]');
+                    
+                    requiredFields.forEach(field => {
+                        if (!field.value.trim()) {
+                            isValid = false;
+                            field.classList.add('error');
+                        } else {
+                            field.classList.remove('error');
+                        }
+                    });
+                    
+                    if (isValid) {
+                        form.reset();
+                        alert('Form submitted successfully! (This is a demo)');
+                    }
+                });
+            });
+        }
+
+        // Initialize everything on DOM content loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // Ensure mobile menu is hidden by default
+            if (navMenu && window.innerWidth <= 768) {
+                navMenu.classList.remove('active');
+            }
+            
+            initFAQ();
+            initTestimonialSlider();
+            initPortfolioFilter();
+            initMagneticEffect();
+            initScrollAnimations();
+            initMobileNav();
+            initFormValidation();
+            
+            // Stats animation trigger
+            const testimonialsSection = document.querySelector('#testimonials');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateStats();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            if (testimonialsSection) {
+                observer.observe(testimonialsSection);
+            }
+            
+            // Initialize tilt effect on cards
+            const tiltElements = document.querySelectorAll('[data-tilt]');
+            tiltElements.forEach(element => {
+                element.addEventListener('mousemove', e => {
+                    const rect = element.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const tiltX = (y - centerY) / centerY * 10;
+                    const tiltY = (centerX - x) / centerX * 10;
+                    
+                    element.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.05, 1.05, 1.05)`;
+                });
+                
+                element.addEventListener('mouseleave', () => {
+                    element.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
